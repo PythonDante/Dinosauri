@@ -65,7 +65,11 @@ public class DinosauroDAOImpl implements DinosauroDAO {
 
     @Override
     public void delete(int id) {
-        dinosauri.removeIf(d -> d.getId() == id);
+        for (Dinosauro d : dinosauri) {
+            if (d.getId() == id) {
+                dinosauri.remove(d.getId());
+            }
+        }
         System.out.println("Dinosauro eliminato con ID: " + id);
     }
 
